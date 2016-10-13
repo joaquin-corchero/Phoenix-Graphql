@@ -8,12 +8,3 @@ config :phoenix_graphql, PhoenixGraphql.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :phoenix_graphql, PhoenixGraphql.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "phoenix_graphql_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
