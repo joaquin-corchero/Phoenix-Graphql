@@ -11,9 +11,8 @@ defmodule PhoenixGraphql.Schema.Types do
 
   @desc "A blog post"
   object :post do
-    field :id, :id
-    field :title, :string
-    field :body, :string
-    field :author, :user
-  end
+   field :id, :id
+   field :title, :string
+   field :body, :string
+ end
 end

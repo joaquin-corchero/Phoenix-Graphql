@@ -3,18 +3,19 @@ defmodule PhoenixGraphql.Resolver.User do
   @users ~s([{"id":"1", "name":"name 1", "email":"1@mail.com"}, {"id":"2", "name":"name 2", "email":"2@mail.com"}])
 
   def all(_args, _info) do
-    Poison.Parser.parse!(@users)
+    {:ok, get_users}
+  end
+
+  defp get_users() do
+    Poison.decode!(@users, as: [%PhoenixGraphql.Schema.User{}])
   end
 
   def find(%{id: id}, _info) do
-    #{index, _} = Integer.parse(id)
-    index = 0
+    {index, _} = Integer.parse(id)
 
     result =
-      Poison.Parser.parse!(@users) |>
+      get_users |>
       Enum.at(index)
-
-    IO.inspect result
 
     case result do
       nil -> {:error, "User id #{id} not found"}

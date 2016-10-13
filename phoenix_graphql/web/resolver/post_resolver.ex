@@ -1,10 +1,14 @@
 defmodule PhoenixGraphql.Resolver.Post do
 
+  @posts ~s([
+    {"title":"1", "body":"1"},
+    {"title":"2", "body":"2"},
+    {"title":"3", "body":"3"}
+  ])
+
   def all(_args, _info) do
-    content = "[{id:10, title:'title 1', body:'body 1'}, {id:20, title:'title 2', body:'body 2'}, {id:30, title:'title 3', body:'body 3'}]"
-    IO.inspect("POSTS************************")
-    IO.inspect(content)
-    {:ok, Poison.Parser.parse!(content)}
+    posts = Poison.decode!(@posts, as: [%PhoenixGraphql.Schema.Post{}])
+    {:ok, posts}
   end
 
 end

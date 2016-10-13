@@ -11,6 +11,21 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+##after running the site:
+
+  * http://localhost:4000/graphiql to run queries like: {
+  users {
+    name,
+    id,
+    email
+  },
+  posts {
+    title,
+    id,
+    body
+  }
+}
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
