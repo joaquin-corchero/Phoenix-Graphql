@@ -1,5 +1,7 @@
 # PhoenixGraphql
 
+Little application showcasing phoenix with graphql using absinthe_plug with json as datasource.
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
