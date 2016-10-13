@@ -3,17 +3,12 @@
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
   * Start Phoenix endpoint with `mix phoenix.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+##Once the site is running:
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+  * Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like: {
 
-##after running the site:
-
-  * http://localhost:4000/graphiql to run queries like: {
   users {
     name,
     id,
@@ -26,6 +21,9 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   }
 }
 
+* Run queries directly like:  [`localhost:4000/api?query={posts{title,%20body}}`](http://localhost:4000/api?query={posts{title,%20body}})
+
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
@@ -33,3 +31,5 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+  * absinthe_plug: https://github.com/absinthe-graphql/absinthe_plug
+  * graphql: http://graphql.org/learn/
