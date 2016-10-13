@@ -48,7 +48,7 @@ defmodule PhoenixGraphql.Web do
 
   def router do
     quote do
-      use Phoenix.Router
+      use PhoenixGraphql.Router
     end
   end
 

@@ -5,8 +5,11 @@ defmodule PhoenixGraphql.Router do
       plug PhoenixGraphql.Context
   end
 
-  scope "/api" do
+  scope "/" do
     pipe_through :graphql
+
+    get "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.Schema
+    post "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.Schema
 
     forward "/", Absinthe.Plug, schema: PhoenixGraphql.Schema
   end
