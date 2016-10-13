@@ -5,10 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
-#config :phoenix_graphql
-#,ecto_repos: [PhoenixGraphql.Repo]
-
 # Configures the endpoint
 config :phoenix_graphql, PhoenixGraphql.Endpoint,
   url: [host: "localhost"],
