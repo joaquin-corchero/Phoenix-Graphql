@@ -1,7 +1,13 @@
 defmodule PhoenixGraphql.Router do
   use Phoenix.Router
 
-forward "/", Absinthe.Plug,
-  schema: PhoenixGraphql.Schema
-  
+  pipeline :graphql do
+      plug PhoenixGraphql.Context
+  end
+
+  scope "/api" do
+    pipe_through :graphql
+
+    forward "/", Absinthe.Plug, schema: PhoenixGraphql.Schema
+  end
 end
