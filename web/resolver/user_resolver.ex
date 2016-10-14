@@ -7,7 +7,7 @@ defmodule PhoenixGraphql.Resolver.User do
   end
 
   defp get_users() do
-    Poison.decode!(@users, as: [%PhoenixGraphql.Schema.User{}])
+    Poison.decode!(@users, as: [%PhoenixGraphql.User{}])
   end
 
   def find(%{id: id}, _info) do

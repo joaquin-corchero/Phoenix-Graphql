@@ -6,9 +6,18 @@ defmodule PhoenixGraphql.Resolver.Post do
     {"title":"3", "body":"3"}
   ])
 
+  def all() do
+    Poison.decode!(@posts, as: [%PhoenixGraphql.Post{}])
+  end
+
   def all(_args, _info) do
-    posts = Poison.decode!(@posts, as: [%PhoenixGraphql.Schema.Post{}])
-    {:ok, posts}
+    {:ok, all}
+  end
+
+  def find(id) do
+    all() |>
+    Enum.filter( fn(user) -> user.id === id end) |>
+    Enum.at(0)
   end
 
 end
