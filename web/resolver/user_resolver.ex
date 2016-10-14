@@ -11,16 +11,18 @@ defmodule PhoenixGraphql.Resolver.User do
   end
 
   def find(%{id: id}, _info) do
-    {index, _} = Integer.parse(id)
-
-    result =
-      get_users |>
-      Enum.at(index)
+    result = find_user(id)
 
     case result do
       nil -> {:error, "User id #{id} not found"}
       user -> {:ok, user}
     end
+  end
+
+  defp find_user(id) do
+    get_users |>
+    Enum.filter( fn(user) -> user.id === id end) |>
+    Enum.at(0)
   end
 
 end

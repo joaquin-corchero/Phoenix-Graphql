@@ -10,18 +10,24 @@ To start your Phoenix app:
 ##Once the site is running:
 
   * Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like: {
+    {
+      users {
+        name,
+        id,
+        email
+      }
+      posts {
+        title,
+        id,
+        body
+      }
+      user(id:"1"){
+        id,
+        name,
+        email
+      }
+    }
 
-  users {
-    name,
-    id,
-    email
-  },
-  posts {
-    title,
-    id,
-    body
-  }
-}
 
 * Run queries directly like:  [`localhost:4000/api?query={posts{title,%20body}}`](http://localhost:4000/api?query={posts{title,%20body}})
 
