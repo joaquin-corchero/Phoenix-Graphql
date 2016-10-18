@@ -1,4 +1,16 @@
-defmodule PhoenixGraphql.Resolver.User do
+defmodule PhoenixGraphql.User do
+  use Absinthe.Schema.Notation
+
+  defstruct id: 0, name: nil, email: nil
+
+
+  @desc "A blog user"
+  object :user do
+    field :id, :id
+    field :name, :string
+    field :email, :string
+    field :posts, list_of(:post)
+  end
 
   @users ~s([{"id":"1", "name":"name 1", "email":"1@mail.com"}, {"id":"2", "name":"name 2", "email":"2@mail.com"}])
 
