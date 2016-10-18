@@ -23,4 +23,13 @@ defmodule PhoenixGraphql.Schema do
     end
   end
 
+  mutation do
+    @desc "Create post"
+    field :post, type: :post do
+      arg :title, non_null(:string)
+      arg :body, non_null(:string)
+      resolve &Post.create/2
+    end
+  end
+
 end

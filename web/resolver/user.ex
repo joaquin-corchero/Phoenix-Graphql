@@ -3,7 +3,6 @@ defmodule PhoenixGraphql.User do
 
   defstruct id: 0, name: nil, email: nil
 
-
   @desc "A blog user"
   object :user do
     field :id, :id
