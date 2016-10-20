@@ -27,6 +27,7 @@ defmodule PhoenixGraphql.Mixfile do
         :logger,
         :gettext,
         :absinthe_plug,
+        :absinthe_relay
       ]
     ]
   end
@@ -48,6 +49,7 @@ defmodule PhoenixGraphql.Mixfile do
       {:cowboy, "~> 1.0"},
       {:poison, "~> 2.1"},
       {:absinthe_plug, "~> 1.1"},
+      {:absinthe_relay, "~> 0.9.2"}
     ]
   end
 

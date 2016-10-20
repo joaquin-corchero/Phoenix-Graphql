@@ -30,4 +30,9 @@ defmodule PhoenixGraphql.Post do
     Enum.at(0)
   end
 
+  def create(%{title: title, body: body}, _info) do
+    {:ok, %__MODULE__{title: title, body: body}}
+  end
+
+
 end

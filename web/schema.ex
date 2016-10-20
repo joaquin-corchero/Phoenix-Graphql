@@ -1,5 +1,6 @@
 defmodule PhoenixGraphql.Schema do
   use Absinthe.Schema
+  use Absinthe.Relay.Schema
 
   import_types PhoenixGraphql.User
 
@@ -24,11 +25,16 @@ defmodule PhoenixGraphql.Schema do
   end
 
   mutation do
-    @desc "Create post"
-    field :post, type: :post do
-      arg :title, non_null(:string)
-      arg :body, non_null(:string)
-      resolve &Post.create/2
+    payload field :post do
+      input do
+        field :title, non_null(:string)
+        field :body, non_null(:string)
+      end
+      output do
+        field :title, :string
+        field :body, :string
+      end
+      resolve &PhoenixGraphql.Post.create/2
     end
   end
 

@@ -28,8 +28,44 @@ To start your Phoenix app:
       }
     }
 
+* Mutation relay example:
+
+payload field :post do
+  input do
+    field :title, non_null(:string)
+    field :body, non_null(:string)
+  end
+  output do
+    field :title, :string
+    field :body, :string
+  end
+  resolve &PhoenixGraphql.Post.create/2
+end
+
+
+* Execution on graphiql:
+
+mutation M($input: PostInput)
+{
+  post(input: $input)
+  {
+    clientMutationId,
+    body,
+    title
+  }
+}
 
 * Run queries directly like:  [`localhost:4000/api?query={posts{title,%20body}}`](http://localhost:4000/api?query={posts{title,%20body}})
+
+query variables:
+
+{
+  "input": {
+    "title": "Post title",
+    "body":  "Post body",
+   	"clientMutationId": "post001"
+  }
+ }
 
 
 ## Learn more
