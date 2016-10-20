@@ -10,7 +10,7 @@ To start your Phoenix app:
 ##Once the site is running:
 
 ###Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like:  
-{  
+```{  
   users {  
     name,  
     id,  
@@ -27,8 +27,10 @@ To start your Phoenix app:
     email  
   }  
 }
+```
 
 ###Mutation relay example:
+```
 payload field :post do  
   input do  
     field :title, non_null(:string)  
@@ -39,25 +41,29 @@ payload field :post do
     field :body, :string  
   end  
   resolve &PhoenixGraphql.Post.create/2  
-end  
+end
+```
 
 ###Execution on graphiql:
+```
 mutation M($input: PostInput){  
   post(input: $input){  
     clientMutationId,  
     body,  
     title  
   }  
-}  
+}
+```
 
 query variables:  
-{  
+```{  
   "input": {  
     "title": "Post title",  
     "body":  "Post body",  
     "clientMutationId": "post001"  
   }  
 }
+```
 
 ###Run queries directly like:  [`localhost:4000/api?query={posts{title,%20body}}`](http://localhost:4000/api?query={posts{title,%20body}})  
 
