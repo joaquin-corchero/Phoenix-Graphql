@@ -57,7 +57,8 @@ mutation M($input: PostInput){
 ```
 
 query variables:  
-```{  
+```
+{  
   "input": {  
     "title": "Post title",  
     "body":  "Post body",  
