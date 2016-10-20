@@ -10,7 +10,8 @@ To start your Phoenix app:
 ##Once the site is running:
 
 ###Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like:  
-```{  
+```
+{  
   users {  
     name,  
     id,  
