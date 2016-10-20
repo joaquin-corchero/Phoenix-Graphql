@@ -9,24 +9,24 @@ To start your Phoenix app:
 
 ##Once the site is running:
 
-  * Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like: __
-    {__
-      users {__
-        name,__
-        id,__
-        email__
-      }__
-      posts {__
-        title,__
-        id,__
-        body__
-      }__
-      user(id:"1"){__
-        id,__
-        name,__
-        email__
-      }__
-    }__
+  * Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like:  
+    {  
+      users {  
+        name,  
+        id,  
+        email  
+      }  
+      posts {  
+        title,  
+        id,  
+        body  
+      }  
+      user(id:"1"){  
+        id,  
+        name,  
+        email  
+      }  
+    }
 
 * Mutation relay example:
 
