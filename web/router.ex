@@ -15,9 +15,9 @@ defmodule PhoenixGraphql.Router do
 
     pipe_through :graphql
 
-    get "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.Schema
-    post "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.Schema
+    get "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.GraphQL.Schema
+    post "/graphiql", Absinthe.Plug.GraphiQL, schema: PhoenixGraphql.GraphQL.Schema
 
-    forward "/api", Absinthe.Plug, schema: PhoenixGraphql.Schema
+    forward "/api", Absinthe.Plug, schema: PhoenixGraphql.GraphQL.Schema
   end
 end

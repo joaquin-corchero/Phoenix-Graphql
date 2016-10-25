@@ -1,14 +1,18 @@
-defmodule PhoenixGraphql.User do
+defmodule PhoenixGraphql.GraphQL.UserDto do
   use Absinthe.Schema.Notation
 
-  defstruct id: 0, name: nil, email: nil
+  defstruct [
+    id: 0,
+    name: nil,
+    email: nil
+  ]
 
   @desc "A blog user"
-  object :user do
+  object :user_model do
     field :id, :id
     field :name, :string
     field :email, :string
-    field :posts, list_of(:post)
+    field :posts, list_of(:post_model)
   end
 
   @users ~s([{"id":"1", "name":"name 1", "email":"1@mail.com"}, {"id":"2", "name":"name 2", "email":"2@mail.com"}])
@@ -18,7 +22,7 @@ defmodule PhoenixGraphql.User do
   end
 
   defp get_users() do
-    Poison.decode!(@users, as: [%PhoenixGraphql.User{}])
+    Poison.decode!(@users, as: [%__MODULE__{}])
   end
 
   def find(%{id: id}, _info) do

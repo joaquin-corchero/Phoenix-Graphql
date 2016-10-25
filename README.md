@@ -47,8 +47,8 @@ end
 
 ###Execution on graphiql:
 ```
-mutation M($input: PostInput){  
-  post(input: $input){  
+mutation M($input: PostModelInput){  
+  postModel(input: $input){  
     clientMutationId,  
     body,  
     title  

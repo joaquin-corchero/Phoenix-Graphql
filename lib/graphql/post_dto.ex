@@ -1,10 +1,14 @@
-defmodule PhoenixGraphql.Post do
+defmodule PhoenixGraphql.GraphQL.PostDto do
   use Absinthe.Schema.Notation
 
-  defstruct id: 0, title: nil, body: nil
+  defstruct [
+    id: 0,
+    title: nil,
+    body: nil
+  ]
 
   @desc "A blog post"
-  object :post do
+  object :post_model do
    field :id, :id
    field :title, :string
    field :body, :string
@@ -17,7 +21,7 @@ defmodule PhoenixGraphql.Post do
  ])
 
   def all() do
-    Poison.decode!(@posts, as: [%PhoenixGraphql.Post{}])
+    Poison.decode!(@posts, as: [%__MODULE__{}])
   end
 
   def all(_args, _info) do

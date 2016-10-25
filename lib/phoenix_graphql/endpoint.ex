@@ -23,10 +23,6 @@ defmodule PhoenixGraphql.Endpoint do
     pass: ["*/*"],
     json_decoder: Poison
 
-  #plug Absinthe.Plug,
-  #    schema: PhoenixGraphql.Schema
-
-
   plug Plug.MethodOverride
   plug Plug.Head
 
