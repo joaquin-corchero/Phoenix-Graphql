@@ -11,22 +11,24 @@ To start your Phoenix app:
 
 ###Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like:  
 ```
-{  
-  users {  
-    name,  
-    id,  
-    email  
-  }  
-  posts {  
-    title,  
-    id,  
-    body  
-  }  
-  user(id:"1"){  
-    id,  
-    name,  
-    email  
-  }  
+{
+  root{
+    posts{
+      body,
+      id,
+      title
+    }
+    users{
+      email,
+      name,
+      id
+    }
+    filteredUser(id:"1"){  
+      id,  
+      name,  
+      email  
+  	}  
+  }
 }
 ```
 
