@@ -20,13 +20,18 @@ defmodule PhoenixGraphql.GraphQL.Schemas.PostDto do
    {"id":"3","title":"3", "body":"3"}
  ])
 
-  def all() do
-    Poison.decode!(@posts, as: [%__MODULE__{}])
-  end
+ def resolve(_args, _info) do
+   {:ok, %__MODULE__{}}
+ end
 
   def all(_args, _info) do
     {:ok, all}
   end
+
+  def all() do
+    Poison.decode!(@posts, as: [%__MODULE__{}])
+  end
+
 
   def find(id) do
     all() |>

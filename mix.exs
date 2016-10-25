@@ -2,7 +2,8 @@ defmodule PhoenixGraphql.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :phoenix_graphql,
+  [
+    app: :phoenix_graphql,
      version: "0.0.1",
      elixir: "~> 1.3.3",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -10,7 +11,9 @@ defmodule PhoenixGraphql.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps(),
+     test_paths: ["lib"]
+  ]
   end
 
   # Configuration for the OTP application.

@@ -2,6 +2,8 @@
 
 Little application showcasing phoenix with graphql using absinthe_plug with json as datasource.
 
+I hope the names on the modules will make easier to understand how things fit together.
+
 To start your Phoenix app:
 
 * Install dependencies with `mix deps.get`
@@ -34,16 +36,16 @@ To start your Phoenix app:
 
 ###Mutation relay example:
 ```
-payload field :post do  
-  input do  
-    field :title, non_null(:string)  
-    field :body, non_null(:string)  
-  end  
-  output do  
-    field :title, :string  
-    field :body, :string  
-  end  
-  resolve &PhoenixGraphql.Post.create/2  
+payload field :post_model do
+  input do
+    field :title, non_null(:string)
+    field :body, non_null(:string)
+  end
+  output do
+    field :title, :string
+    field :body, :string
+  end
+  resolve &PostDto.create/2
 end
 ```
 

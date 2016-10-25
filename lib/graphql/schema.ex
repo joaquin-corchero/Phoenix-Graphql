@@ -40,7 +40,7 @@ defmodule PhoenixGraphql.GraphQL.Schema do
   node object :root, description: "All resolvers got here" do
     @desc "Get all the posts"
     field :posts, list_of(:post_model) do
-      resolve &PostDto.all/2
+      resolve &PostDto.resolve/2
     end
 
     @desc "Get all users"

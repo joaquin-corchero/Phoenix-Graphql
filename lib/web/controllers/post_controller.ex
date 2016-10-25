@@ -1,11 +1,21 @@
 defmodule PhoenixGraphql.PostController do
   use PhoenixGraphql.Web, :controller
 
-  alias PhoenixGraphql.Post
+  alias PhoenixGraphql.GraphQL.Schemas.PostDto
+
+  @posts ~s([
+    {"id":"1","title":"1", "body":"1"},
+    {"id":"2","title":"2", "body":"2"},
+    {"id":"3","title":"3", "body":"3"}
+  ])
 
   def index(conn, _params) do
-    posts = PhoenixGraphql.Resolver.Post.all()
-    render(conn, "index.json", posts: posts)
+    IO.inspect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    render(conn, "index.json", posts: get_posts)
+  end
+
+  defp get_posts() do
+    Poison.decode!(@posts, as: [%PostDto{}])
   end
 
   def create(conn, %{"post" => post_params}) do
@@ -25,7 +35,7 @@ defmodule PhoenixGraphql.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = PhoenixGraphql.Resolver.Post.find(id)
+    post = PostDto.find(id)
     render(conn, "show.json", post: post)
   end
 
