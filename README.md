@@ -69,7 +69,7 @@ query variables:
 }
 ```
 
-###Run queries directly like:  [`localhost:4000/api?query={posts{title,%20body}}`](http://localhost:4000/api?query={posts{title,%20body}})  
+###Run queries directly like:  [`localhost:4000/api?query={root{posts{body,id,title}}}`](http://localhost:4000/api?query={root{posts{body,id,title}}})  
 
 ## Learn more
 
