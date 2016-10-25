@@ -10,3 +10,4 @@ install:
   - mix deps.get
 script:
   - mix test
+  
