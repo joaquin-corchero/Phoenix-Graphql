@@ -1,7 +1,7 @@
-defmodule PhoenixGraphql.GraphQL.Schemas.PostDtoTest do
+defmodule PhoenixGraphql.GraphQL.PostDtoTest do
   use ExUnit.Case
 
-  alias PhoenixGraphql.GraphQL.Schemas.PostDto, as: Sut
+  alias PhoenixGraphql.GraphQL.PostDto, as: Sut
 
   describe "PostDto.resolve/2" do
     test "Returns dtos struct from source" do

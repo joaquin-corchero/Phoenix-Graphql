@@ -2,11 +2,11 @@ defmodule PhoenixGraphql.GraphQL.Schema do
   use Absinthe.Schema
   use Absinthe.Relay.Schema
 
-  alias PhoenixGraphql.GraphQL.Schemas.UserDto
-  alias PhoenixGraphql.GraphQL.Schemas.PostDto
+  alias PhoenixGraphql.GraphQL.UserDto
+  alias PhoenixGraphql.GraphQL.PostDto
 
-  import_types PhoenixGraphql.GraphQL.Schemas.UserDto
-  import_types PhoenixGraphql.GraphQL.Schemas.PostDto
+  import_types PhoenixGraphql.GraphQL.UserDto
+  import_types PhoenixGraphql.GraphQL.PostDto
 
   defstruct [
     posts: nil,

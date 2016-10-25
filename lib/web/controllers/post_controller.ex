@@ -1,7 +1,7 @@
 defmodule PhoenixGraphql.PostController do
   use PhoenixGraphql.Web, :controller
 
-  alias PhoenixGraphql.GraphQL.Schemas.PostDto
+  alias PhoenixGraphql.GraphQL.PostDto
 
   @posts ~s([
     {"id":"1","title":"1", "body":"1"},

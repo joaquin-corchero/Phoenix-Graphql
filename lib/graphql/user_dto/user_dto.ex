@@ -1,4 +1,4 @@
-defmodule PhoenixGraphql.GraphQL.Schemas.UserDto do
+defmodule PhoenixGraphql.GraphQL.UserDto do
   use Absinthe.Schema.Notation
 
   defstruct [
