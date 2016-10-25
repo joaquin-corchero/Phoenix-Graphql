@@ -22,32 +22,38 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
 
  def resolve(_args, _info, http_client \\HTTPoison) do
    url = "http://localhost:4000/posts"
-
-   posts =
-     url |>
-     http_client.get! |>
-     Poison.decode!(as: [%__MODULE__{}])
-   {:ok, posts}
+   |> http_client.get
+   |> handle_response
  end
 
-  def all(_args, _info) do
-    {:ok, all}
+ defp handle_response({:ok, %HTTPoison.Response{body: {body}, status_code: 200}}) do
+   IO.inspect "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+   IO.inspect body
+    post = body
+    #|> Poison.decode!(as: [%__MODULE__{}])
+    {:ok, body}
   end
 
-  def all() do
-    Poison.decode!(@posts, as: [%__MODULE__{}])
+  defp handle_response({:ok, something}) do
+    IO.inspect "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    IO.inspect something
+
+    {:error, "Bad request"}
   end
 
-
-  def find(id) do
-    all() |>
-    Enum.filter( fn(user) -> user.id === id end) |>
-    Enum.at(0)
+  defp handle_response({:error, _}) do
+    {:error, "Something went wrong"}
   end
 
-  def create(%{title: title, body: body}, _info) do
-    {:ok, %__MODULE__{title: title, body: body}}
-  end
+  #def find(id) do
+    #all() |>
+    #Enum.filter( fn(user) -> user.id === id end) |>
+    #Enum.at(0)
+  #end
+
+  #def create(%{title: title, body: body}, _info) do
+    #{:ok, %__MODULE__{title: title, body: body}}
+  #end
 
 
 end

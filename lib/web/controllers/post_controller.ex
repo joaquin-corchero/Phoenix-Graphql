@@ -10,7 +10,6 @@ defmodule PhoenixGraphql.PostController do
   ])
 
   def index(conn, _params) do
-    IO.inspect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     render(conn, "index.json", posts: get_posts)
   end
 
