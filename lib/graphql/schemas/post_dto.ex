@@ -20,8 +20,14 @@ defmodule PhoenixGraphql.GraphQL.Schemas.PostDto do
    {"id":"3","title":"3", "body":"3"}
  ])
 
- def resolve(_args, _info) do
-   {:ok, %__MODULE__{}}
+ def resolve(_args, _info, http_client \\HTTPoison) do
+   url = "http://localhost:4000/posts"
+
+   posts =
+     url |>
+     http_client.get! |>
+     Poison.decode!(as: [%__MODULE__{}])
+   {:ok, posts}
  end
 
   def all(_args, _info) do
