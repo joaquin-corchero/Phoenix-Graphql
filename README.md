@@ -1,4 +1,4 @@
-# PhoenixGraphql
+# Phoenix and Graphql
 
 Little application showcasing phoenix with graphql using absinthe_plug with json as datasource.
 
