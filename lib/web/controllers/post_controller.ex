@@ -2,35 +2,16 @@ defmodule PhoenixGraphql.PostController do
   use PhoenixGraphql.Web, :controller
 
   alias PhoenixGraphql.GraphQL.PostDto
-
-  @posts ~s([
-    {"id":"1","title":"1", "body":"1"},
-    {"id":"2","title":"2", "body":"2"},
-    {"id":"3","title":"3", "body":"3"}
-  ])
+  alias PhoenixGraphql.PostAgent
 
   def index(conn, _params) do
-    render(conn, "index.json", posts: get_posts)
-  end
-
-  defp get_posts() do
-    Poison.decode!(@posts, as: [%PostDto{}])
+    render(conn, "index.json", posts: PostAgent.get)
   end
 
   def create(conn, %{"post" => post_params}) do
-    #changeset = Post.changeset(%Post{}, post_params)
-
-    #case Repo.insert(changeset) do
-    #  {:ok, post} ->
-    #    conn
-    #    |> put_status(:created)
-    #    |> put_resp_header("location", post_path(conn, :show, post))
-    #    |> render("show.json", post: post)
-    #  {:error, changeset} ->
-    #    conn
-    #    |> put_status(:unprocessable_entity)
-    #    |> render(PhoenixGraphql.ChangesetView, "error.json", changeset: changeset)
-    #end
+    IO.inspect post_params
+    PhoenixGraphql.PostAgent.put(%PostDto{id: 100, title: "the title", body: "This is a very long body"} )
+    render(conn, "index.json", posts: PostAgent.get)
   end
 
   def show(conn, %{"id" => id}) do

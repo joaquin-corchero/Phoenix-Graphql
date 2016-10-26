@@ -18,6 +18,8 @@ defmodule PhoenixGraphql do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: PhoenixGraphql.Supervisor]
     Supervisor.start_link(children, opts)
+    
+    PhoenixGraphql.PostAgent.start_link
   end
 
   # Tell Phoenix to update the endpoint configuration
