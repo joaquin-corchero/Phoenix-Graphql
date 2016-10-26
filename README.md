@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/joaquin-corchero/phoenix_graphql.svg?branch=master)](https://travis-ci.org/joaquin-corchero/phoenix_graphql)
 # Phoenix and Graphql
 
 Little application showcasing phoenix with graphql using absinthe_plug with json as datasource.
