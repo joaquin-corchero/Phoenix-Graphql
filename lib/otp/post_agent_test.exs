@@ -4,12 +4,6 @@ defmodule PhoenixGraphql.PostAgentTest do
   alias PhoenixGraphql.PostAgent, as: Sut
   alias PhoenixGraphql.GraphQL.PostDto
 
-  setup do
-    stop
-    {:ok, agent} = Sut.start_link
-    {:ok, agent: agent}
-  end
-
   test "agent works" do
     expected = 3
     actual = Enum.count(Sut.get)
@@ -23,7 +17,4 @@ defmodule PhoenixGraphql.PostAgentTest do
     assert actual == expected
   end
 
-  defp stop do
-    Sut.stop
-  end
 end

@@ -6,10 +6,15 @@ defmodule PhoenixGraphql do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    IO.inspect("^^^^^^^^^^^^^^^^^^^^")
+    IO.inspect("Application Started!!!!")
+    IO.inspect("^^^^^^^^^^^^^^^^^^^^")
+
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
       supervisor(PhoenixGraphql.Endpoint, []),
+      supervisor(PhoenixGraphql.AgentSupervisor, [])
       # Start your own worker by calling: PhoenixGraphql.Worker.start_link(arg1, arg2, arg3)
       # worker(PhoenixGraphql.Worker, [arg1, arg2, arg3]),
     ]
@@ -19,7 +24,7 @@ defmodule PhoenixGraphql do
     opts = [strategy: :one_for_one, name: PhoenixGraphql.Supervisor]
     Supervisor.start_link(children, opts)
 
-    PhoenixGraphql.Supervisor.start_link
+    #PhoenixGraphql.AgentSupervisor.start_link
   end
 
   # Tell Phoenix to update the endpoint configuration

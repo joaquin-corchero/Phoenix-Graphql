@@ -8,6 +8,9 @@ defmodule PhoenixGraphql.PostAgent do
   ])
 
   def start_link do
+    IO.inspect("++++++++++++++++++++")
+    IO.inspect("Agent started!!!!")
+    IO.inspect("++++++++++++++++++++")
     init_posts = Poison.decode!(@posts, as: [%PostDto{}])
 
     Agent.start_link(fn -> init_posts end, name: :postStorage)
