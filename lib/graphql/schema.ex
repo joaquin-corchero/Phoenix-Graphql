@@ -43,6 +43,11 @@ defmodule PhoenixGraphql.GraphQL.Schema do
       resolve &PostDto.resolve/2
     end
 
+    @desc "Get post by id"
+    field :posts, list_of(:post_model) do
+      resolve &PostDto.find/2
+    end
+
     @desc "Get all users"
     field :users, list_of(:user_model) do
       resolve &UserDto.all/2

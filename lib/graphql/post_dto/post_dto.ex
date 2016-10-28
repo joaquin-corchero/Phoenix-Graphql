@@ -43,7 +43,7 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
     {:error, "Something wrong happened: #{body}"}
   end
 
-  def find(id, http_client \\HTTPoison) do
+  def find(%{id: id}, _info, http_client \\HTTPoison) do
     url = "http://localhost:4000/posts/#{id}"
     |> http_client.get!
     |> handle_find_response
