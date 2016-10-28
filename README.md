@@ -1,7 +1,11 @@
 [![Build Status](https://travis-ci.org/joaquin-corchero/phoenix_graphql.svg?branch=master)](https://travis-ci.org/joaquin-corchero/phoenix_graphql)
 # Phoenix and Graphql
 
-Little application showcasing phoenix with graphql using absinthe_plug with json as datasource.
+Little application showcasing [`http://www.phoenixframework.org/`](phoenix) with [`http://graphql.org/learn/`](graphql) using [`https://github.com/absinthe-graphql/absinthe_plug`](absinthe_plug).
+
+For data layer I have chosen simple agents ([`http://elixir-lang.org/getting-started/mix-otp/`](check OTP)) to keep state with  [`https://github.com/joaquin-corchero/phoenix_graphql/blob/master/lib/phoenix_graphql.ex`](recovery) strategy.
+
+I have chosen [`https://github.com/leighshepperson/stubr`](stubr) by [`https://github.com/leighshepperson`](Leigh Shepperson) as the testing framework.
 
 I hope the names on the modules will make easier to understand how things fit together.
 
@@ -74,6 +78,13 @@ query variables:
 
 ###Run queries directly like:  [`localhost:4000/api?query={root{posts{body,id,title}}}`](http://localhost:4000/api?query={root{posts{body,id,title}}})  
 
+##Next steps
+* Hook all post queries to the posts controller
+* Create user agent
+* Create user controller
+* Hook all user queries to the user controller
+* Make a bit more complex the schema with relationships
+
 ## Learn more
 
 * Official website: http://www.phoenixframework.org/
@@ -84,4 +95,3 @@ query variables:
 * absinthe_plug: https://github.com/absinthe-graphql/absinthe_plug
 * graphql: http://graphql.org/learn/
 * stubr: https://github.com/leighshepperson/stubr
-* http://elixir-lang.org/getting-started/mix-otp/

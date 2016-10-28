@@ -6,17 +6,10 @@ defmodule PhoenixGraphql do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    IO.inspect("^^^^^^^^^^^^^^^^^^^^")
-    IO.inspect("Application Started!!!!")
-    IO.inspect("^^^^^^^^^^^^^^^^^^^^")
-
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the endpoint when the application starts
       supervisor(PhoenixGraphql.Endpoint, []),
-      worker(PhoenixGraphql.PostAgent, [])
-      # Start your own worker by calling: PhoenixGraphql.Worker.start_link(arg1, arg2, arg3)
-      # worker(PhoenixGraphql.Worker, [arg1, arg2, arg3]),
+      worker(PhoenixGraphql.PostAgent, [])# adding the agent to the supervision tree
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
