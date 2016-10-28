@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.org/joaquin-corchero/phoenix_graphql.svg?branch=master)](https://travis-ci.org/joaquin-corchero/phoenix_graphql)
 # Phoenix and Graphql
 
-Little application showcasing [`phoenix`](http://www.phoenixframework.org/) with [`http://graphql.org/learn/`](graphql) using [`https://github.com/absinthe-graphql/absinthe_plug`](absinthe_plug).
+Little application showcasing [`phoenix`](http://www.phoenixframework.org/) with [`graphql`](http://graphql.org/learn/) using [`absinthe_plug`](https://github.com/absinthe-graphql/absinthe_plug).
 
-For data storage I have chosen simple agents ([`http://elixir-lang.org/getting-started/mix-otp/`](check OTP)) to keep state with  [`https://github.com/joaquin-corchero/phoenix_graphql/blob/master/lib/phoenix_graphql.ex`](recovery) strategy.
+For data storage I have chosen simple agents ([`check OTP tutorial`](http://elixir-lang.org/getting-started/mix-otp)) to keep state with  [`recovery strategy.`](https://github.com/joaquin-corchero/phoenix_graphql/blob/master/lib/phoenix_graphql.ex)
 
-I have chosen [`https://github.com/leighshepperson/stubr`](stubr) by [`https://github.com/leighshepperson`](Leigh Shepperson) as the testing framework.
+I have chosen [`stubr`](https://github.com/leighshepperson/stubr) by [`Leigh Shepperson`](https://github.com/leighshepperson) as the testing framework.
 
 I hope the names on the modules will make easier to understand how things fit together.
 
@@ -16,7 +16,7 @@ To start your Phoenix app:
 
 ##Once the site is running:
 
-###Go here to play with queries[`localhost:4000/graphiql`](http://localhost:4000/graphiql) to run queries like:  
+###Click [`here`](http://localhost:4000/graphiql) to play with queries to run queries like:  
 ```
 {
   root{
@@ -76,9 +76,10 @@ query variables:
 }
 ```
 
-###Run queries directly like:  [`localhost:4000/api?query={root{posts{body,id,title}}}`](http://localhost:4000/api?query={root{posts{body,id,title}}})  
+###Run queries directly like: [`{root{posts{body,id,title}}}`](http://localhost:4000/api?query={root{posts{body,id,title}}})  
 
-##Next steps
+##TODOS
+* Test coverage
 * Hook all post queries to the posts controller
 * Create user agent
 * Create user controller
