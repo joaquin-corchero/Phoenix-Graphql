@@ -84,3 +84,4 @@ query variables:
 * absinthe_plug: https://github.com/absinthe-graphql/absinthe_plug
 * graphql: http://graphql.org/learn/
 * stubr: https://github.com/leighshepperson/stubr
+* http://elixir-lang.org/getting-started/mix-otp/
