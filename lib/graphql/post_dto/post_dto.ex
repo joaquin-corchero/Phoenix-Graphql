@@ -15,7 +15,7 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
   end
 
   def resolve(_args, _info, http_client \\HTTPoison) do
-   url = "http://localhost:4000/posts"
+   "http://localhost:4000/posts"
    |> http_client.get!
    |> handle_resolve_response
   end
@@ -44,7 +44,7 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
   end
 
   def find(%{id: id}, _info, http_client \\HTTPoison) do
-    url = "http://localhost:4000/posts/#{id}"
+    "http://localhost:4000/posts/#{id}"
     |> http_client.get!
     |> handle_find_response
   end
