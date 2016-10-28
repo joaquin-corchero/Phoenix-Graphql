@@ -78,18 +78,6 @@ query variables:
 
 ###Run queries directly like: [`{root{posts{body,id,title}}}`](http://localhost:4000/api?query={root{posts{body,id,title}}})  
 
-##TODOS
-* Test the post_dto creation of the post
-* Add unit test to existing methods on post_controller
-* Add missing methods to controller
-* Test the user_dto
-* Create the user_controller
-* Hook all post queries to the posts controller
-* Create user agent
-* Create user controller
-* Hook all user queries to the user controller
-* Make a bit more complex the schema with relationships
-
 ## Learn more
 
 * Official website: http://www.phoenixframework.org/
