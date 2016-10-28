@@ -14,17 +14,21 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
    field :body, :string
   end
 
- def resolve(_args, _info, http_client \\HTTPoison) do
+  def resolve(_args, _info, http_client \\HTTPoison) do
    url = "http://localhost:4000/posts"
    |> http_client.get!
-   |> handle_response
- end
+   |> handle_resolve_response
+  end
 
- defp handle_response(%{body: body, headers: _, status_code: 200}) do
+  defp handle_resolve_response(%{body: body, headers: _, status_code: 200}) do
    posts = body
    |> Poison.decode!(as: %{"data" => [%__MODULE__{}]})
    |> Map.fetch!("data")
    {:ok, posts}
+  end
+
+  defp handle_resolve_response(response) do
+   handle_response(response)
   end
 
   defp handle_response(%{body: _, headers: _, status_code: 404}) do
@@ -39,11 +43,22 @@ defmodule PhoenixGraphql.GraphQL.PostDto do
     {:error, "Something wrong happened: #{body}"}
   end
 
-  #def find(id) do
-    #all() |>
-    #Enum.filter( fn(user) -> user.id === id end) |>
-    #Enum.at(0)
-  #end
+  def find(id, http_client \\HTTPoison) do
+    url = "http://localhost:4000/posts/#{id}"
+    |> http_client.get!
+    |> handle_find_response
+  end
+
+  defp handle_find_response(%{body: body, headers: _, status_code: 200}) do
+   posts = body
+   |> Poison.decode!(as: %{"data" => %__MODULE__{}})
+   |> Map.fetch!("data")
+   {:ok, posts}
+  end
+
+  defp handle_find_response(response) do
+   handle_response(response)
+  end
 
   #def create(%{title: title, body: body}, _info) do
     #{:ok, %__MODULE__{title: title, body: body}}
