@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/joaquin-corchero/phoenix_graphql.svg?branch=master)](https://travis-ci.org/joaquin-corchero/phoenix_graphql)
 # Phoenix and Graphql
 
-Little application showcasing [`http://www.phoenixframework.org/`](phoenix) with [`http://graphql.org/learn/`](graphql) using [`https://github.com/absinthe-graphql/absinthe_plug`](absinthe_plug).
+Little application showcasing [`phoenix`](http://www.phoenixframework.org/) with [`http://graphql.org/learn/`](graphql) using [`https://github.com/absinthe-graphql/absinthe_plug`](absinthe_plug).
 
-For data layer I have chosen simple agents ([`http://elixir-lang.org/getting-started/mix-otp/`](check OTP)) to keep state with  [`https://github.com/joaquin-corchero/phoenix_graphql/blob/master/lib/phoenix_graphql.ex`](recovery) strategy.
+For data storage I have chosen simple agents ([`http://elixir-lang.org/getting-started/mix-otp/`](check OTP)) to keep state with  [`https://github.com/joaquin-corchero/phoenix_graphql/blob/master/lib/phoenix_graphql.ex`](recovery) strategy.
 
 I have chosen [`https://github.com/leighshepperson/stubr`](stubr) by [`https://github.com/leighshepperson`](Leigh Shepperson) as the testing framework.
 
