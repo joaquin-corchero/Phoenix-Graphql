@@ -13,6 +13,7 @@ defmodule PhoenixGraphql.Router do
     pipe_through :api
     get "/posts", PhoenixGraphql.PostController, :index
     get "/users", PhoenixGraphql.UserController, :index
+    get "/users/:id", PhoenixGraphql.UserController, :show
 
     pipe_through :graphql
 
