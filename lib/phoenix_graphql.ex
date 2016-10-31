@@ -9,7 +9,9 @@ defmodule PhoenixGraphql do
     # Define workers and child supervisors to be supervised
     children = [
       supervisor(PhoenixGraphql.Endpoint, []),
-      worker(PhoenixGraphql.PostAgent, [])# adding the agent to the supervision tree
+      # adding the agent to the supervision tree
+      worker(PhoenixGraphql.PostAgent, []),
+      worker(PhoenixGraphql.UserAgent, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

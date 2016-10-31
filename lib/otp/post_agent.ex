@@ -8,9 +8,6 @@ defmodule PhoenixGraphql.PostAgent do
   ])
 
   def start_link do
-    IO.inspect("++++++++++++++++++++")
-    IO.inspect("Agent started!!!!")
-    IO.inspect("++++++++++++++++++++")
     init_posts = Poison.decode!(@posts, as: [%PostDto{}])
 
     Agent.start_link(fn -> init_posts end, name: :postStorage)
@@ -22,9 +19,5 @@ defmodule PhoenixGraphql.PostAgent do
 
   def put(new_item) do
     Agent.update(:postStorage, fn list -> [new_item | list] end)
-  end
-
-  def stop do
-    Agent.stop(:postStorage)
   end
 end
