@@ -4,8 +4,8 @@ defmodule PhoenixGraphql.UserController do
   alias PhoenixGraphql.GraphQL.UserDto
   alias PhoenixGraphql.UserAgent
 
-  def index(conn, _params) do
-    render(conn, "index.json", users: UserAgent.get)
+  def index(conn, _params, user_agent \\UserAgent.get) do
+    render(conn, "index.json", users: user_agent)
   end
 
   def show(conn, %{"id" => id}) do
