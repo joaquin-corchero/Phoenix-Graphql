@@ -12,6 +12,7 @@ defmodule PhoenixGraphql.Router do
   scope "/" do
     pipe_through :api
     get "/posts", PhoenixGraphql.PostController, :index
+    get "/users", PhoenixGraphql.UserController, :index
 
     pipe_through :graphql
 
